@@ -1,34 +1,40 @@
 import java.util.*;
 
-class main {
+class Program {
 
+	private HashMap<Integer, ArrayList<Integer>> getMap(ArrayList<Integer> tasks){
+		HashMap<Integer, ArrayList<Integer>> taskToIndices = new HashMap<Integer, ArrayList<Integer>>();
+		for(int i = 0; i < tasks.size(); i++){
+			int taskDuration = tasks.get(i);
+			if(taskToIndices.containsKey(taskDuration)){
+				taskToIndices.get(taskDuration).add(i);
+			}
+			else{
+				ArrayList<Integer> temp = new ArrayList<Integer>();
+				temp.add(i);
+				taskToIndices.put(taskDuration, temp);
+			}	
+		}
+		return taskToIndices;
+}
+	
   public ArrayList<ArrayList<Integer>> taskAssignment(int k, ArrayList<Integer> tasks) {
     // Write your code here.
-		ArrayList<Integer> pair = new ArrayList<Integer>();
-		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>(k);
+		HashMap<Integer, ArrayList<Integer>> taskToIndices = getMap(tasks);
 		Collections.sort(tasks);
-		
 		for(int i = 0; i < k; i++){
-			pair.add(tasks.get(i));
-			pair.add(tasks.get(tasks.size() - i - 1));
-			result.add(pair);
-			pair.clear();
+			int first = i, second = (2 * k) - 1 - i;
+			int firstTask = tasks.get(first);
+			int secondTask = tasks.get(second);
+			ArrayList<Integer> temp = new ArrayList<Integer>(2);
+			int index1 = taskToIndices.get(firstTask).remove(0);
+			int index2 = taskToIndices.get(secondTask).remove(0);
+			temp.add(index1);
+			temp.add(index2);
+			result.add(temp);
 		}
-		System.out.println(result);
     return result;
   }
-  
-  public static void main(String[]){
-	int k = 3;
-	ArrayList<Integer> in = new ArrayList<Integer>();
-	in.add(1);
-	in.add(3);
-	in.add(5);
-	in.add(3);
-	in.add(1);
-	in.add(4);
-	taskAssignment(k, in);
-	return;
-  }
-  
 }
+
