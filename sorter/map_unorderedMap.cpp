@@ -1,11 +1,13 @@
 #include<iostream>
 #include<cstring>
 #include<unordered_map>
+#include<map>
 
 using namespace std;
 
 int main(){
-    unordered_map<string, int> h;
+    //unordered_map<string, int> h;
+    map<string, int> h;
 
     h["Honda"] = 2;
     h.insert(make_pair("Bugatti", 7));
