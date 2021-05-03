@@ -19,10 +19,6 @@ class car{
     }
 };
 
-bool comp(car a, car b){
-    return a.x^2 + a.y^2 < b.x^2 + b.y^2;
-}
-
 class carCompare{
     public:
     bool operator()(car a, car b){
@@ -35,7 +31,7 @@ int main(){
     int x[] = {4, 2, 6, 7, 1, 89, 12, 4};
     int y[] = {5, 2, 4, 1, 0, 20, 1, 45};
 
-    priority_queue<car, vector<car>, comp> pq;
+    priority_queue<car, vector<car>, carCompare> pq;
 
     for(int i = 0; i < 8; i++) pq.push(car(i, x[i], y[i]));
 
