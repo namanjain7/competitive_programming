@@ -96,5 +96,6 @@ int32_t main(){
     //iterating through bitsets
     for(int i = 0; i < bset5.size(); i++) cout << bset5.test(i) << " ";
     cout << endl;
+
     return 0;
 }
