@@ -1,7 +1,22 @@
+// @before-stub-for-debug-begin
+#include <vector>
+#include <string>
+#include<bits/stdc++.h>
+
+using namespace std;
+// @before-stub-for-debug-end
+
 /*
  * @lc app=leetcode id=1 lang=cpp
- *
+ * This is simple comment
+ ! This is error
+ ? This is query comment
+ TODO: Thisis a todo comment
+ todo another way to declare todo comment
+ @param myparam The parameter in this line with dark green color
+ // Crossed comment
  * [1] Two Sum
+ * ! This is 
  */
 
 // @lc code=start
@@ -21,5 +36,3 @@ public:
         return result;
     }
 };
-// @lc code=end
-
