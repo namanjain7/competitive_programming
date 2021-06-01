@@ -27,124 +27,18 @@ void stop_sync(){
     cout.tie(NULL);
 }
 
-bool a_m(string s){
-	for(auto i : s){
-		int ascii = int(i);
-
-		if(ascii < 97 || ascii > 109){
-			return false;
-		}
-	}
-	return true;
-}
-
-bool N_Z(string s){
-	for(auto i : s){
-		int ascii = int(i);
-		if(ascii < 78 || ascii > 90){
-			return false;
-		}
-	}
-	return true;
-}
-
-
 void solve(){
-	int n;
-	cin >> n;
-
-	for(int i = 0; i < n; i++){
-		string s;
-		cin >> s;
-		//cout << s[0] << "\t" << int(s[0]) << endl;
-		if(int(s[0]) >= 97 && int(s[0]) <= 109){
-			if(!a_m(s)){
-				cout << "NO" << endl;
-				return;
-			}
-		}
-
-		else if(int(s[0]) >= 78 && int(s[0]) <= 90){
-			if(!N_Z(s)){
-				cout << "NO" << endl;
-				return;
-			}
-		} else{
-			cout << "NO" << endl;
-			return;
-		}
-
-
-	}
-	cout << "YES" << endl;
-}
-
-void solve_2(){
-	int n;
-	cin >> n;
-	string word;
-	for(int i = 0; i < n; i++){
-		cin >> word;
-		int x = int(word[0]);
-		if(x >=  97 && x <= 109){
-			//do stuff
-			for(auto itr : word){
-				if(int(itr) < 97 || int(itr) > 109){
-					cout << "NO" << endl;
-					return;
-				}
-			}
-		}
-		else if(x >= 78 && x <= 90){
-			for(auto itr : word){
-				if(int(itr) < 78 || int(itr) > 90){
-					cout << "NO" << endl;
-					return;
-				}
-			}
-		}
-		else {
-			cout << "NO" << endl;;
-			return;
+	int k; cin >> k;
+	bool ans = false;
+	for(int i = 0; i < k ; i++){
+		string s; cin >> s;
+		if(ans)
+		bool first = false, second = false;
+		for(auto ch : s){
+			if(ch >= 'a' && ch <= 'm') first = true;
+			else if(ch >= 'N' && ch <= 'Z') second = true;
 		}
 	}
-	cout << "YES" << endl;
-	return;
-}
-
-
-void solve_3(){
-	int k;
-	cin >> k;
-	for(int i = 0; i < k; i++){
-		string s;
-		cin >> s;
-		
-		int size = s.size();
-		
-		if(int(s[0]) >= 97 && int(s[0]) <= 109)
-		for(int i = 0;i < size; i++){
-			if(int(s[i]) >= 97 && int(s[i]) <= 109){
-				continue;
-			}
-			else{
-				cout << "NO" << endl;
-				return;
-			}
-		}
-		else if(int(s[0]) >= 78 && int(s[0]) <= 90)
-		for(int i = 0;i < size; i++){
-			if(int(s[i]) >= 78 && int(s[i]) <= 90){
-				continue;
-			}
-			else{
-				cout << "NO" << endl;
-				return;
-			}
-		}
-	}
-	cout << "YES" << endl;
-	return;
 }
 
 int32_t main(){
